@@ -36,40 +36,40 @@ router.post('/', function(req, res) {
     })
     return
   }
-  // //This checks if message is a URL, creates a link and stores in db
-  // if (message.indexof('http') != -1) {
-  //   superagent
-  //   .get(message)
-  //   .query(null)
-  //   .end((err, response) => {
-  //     if (err) {
-  //       res.json({
-  //         confirmation: 'fail',
-  //         message: err.message
-  //       })
-  //       return
-  //     }
+  //This checks if message is a URL, creates a link and stores in db
+  if (message.indexOf('http') != -1) {
+    superagent
+    .get(message)
+    .query(null)
+    .end((err, response) => {
+      if (err) {
+        res.json({
+          confirmation: 'fail',
+          message: err.message
+        })
+        return
+      }
 
-  //     const tags = scrape.tags(response.text)
-  //     console.log(tags)
+      const tags = scrape.tags(response.text)
+      console.log(tags)
       
-  //     // Create link from tags 
-  //     turbo.create('link', tags)
-  //       .then(data => {
-  //         res.json({
-  //           confirmation: 'success',
-  //           data: data
-  //         })
-  //       })
-  //       .catch(err => {
-  //         res.json({
-  //           confirmation: 'fail',
-  //           message: err.message
-  //         })
-  //       })
-  //     })
-  //   return
-  // }
+      // Create link from tags 
+      turbo.create('link', tags)
+        .then(data => {
+          res.json({
+            confirmation: 'success',
+            data: data
+          })
+        })
+        .catch(err => {
+          res.json({
+            confirmation: 'fail',
+            message: err.message
+          })
+        })
+      })
+    return
+  }
 
   // SMS Object
   let sms = {
