@@ -7,10 +7,11 @@ const app = vertex.app()
 // import routes
 const index = require('./routes/index')
 const api = require('./routes/api')
+const sms = require('./routes/sms')
 
 // set routes
 app.use('/', index)
 app.use('/api', api) // sample API Routes
-
+app.use('/sms', sms) //sms route
 
 module.exports = app
