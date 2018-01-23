@@ -17,7 +17,6 @@ router.get('/', function(req, res){
     })
     return 
   }
-
   // Request(Grabs) HTML from the url, then displays that html from our local server
   superagent
   .get(url)
@@ -38,7 +37,6 @@ router.get('/', function(req, res){
       confirmation: 'success',
       tags: tags
     })
-    // res.send(html)
   })
   
 })
