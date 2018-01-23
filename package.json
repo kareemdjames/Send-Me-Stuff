@@ -8,7 +8,9 @@
     "build": ""
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "nodemon": "latest",
+    "superagent": "^3.8.2",
     "turbo360": "latest",
     "vertex360": "latest"
   },
