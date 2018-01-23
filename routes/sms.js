@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 })
 
 // This will recieve the texts from Twilio
-router.post('/', function(rec, res) {
+router.post('/', function(req, res) {
   // this is the data from twilio
   let body = req.body
   // the message
@@ -32,6 +32,7 @@ router.post('/', function(rec, res) {
       confirmation: 'fail',
       message: err.message
     })
+    return
   }
 
   // SMS Object
