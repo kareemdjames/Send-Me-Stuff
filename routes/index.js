@@ -6,15 +6,10 @@ const router = vertex.router()
 
 router.get('/', function(req, res){
 
-	// Fetch sms from db
-	turbo.fetch('sms', null)
+	// Fetch sms or link from db
+	turbo.fetch('link', null)
 		.then(data => {
-			// res.json({
-			// 	confirmation: 'success',
-			// 	data: data
-			// })
-			// Render the data as messages
-			res.render('index', {messages: data})
+			res.render('index', {links: data})
 		})
 		.catch(err => {
 			res.json({
@@ -22,8 +17,6 @@ router.get('/', function(req, res){
 				message: err.message
 			})
 		})
-
-	// res.render('index', {text: 'This is the dynamic data. Open index.js from the routes directory to see.'})
 })
 
 
